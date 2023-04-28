@@ -24,7 +24,11 @@
       });
     }
   };
+  nextTick(() => {
+    console.log(userStore.warningAudioDom, '--userStore.warningAudioDom');
 
+    userStore.warningAudioDom && userStore.warningAudioDom.play();
+  });
   // // 演示可选链问题
   // const obj = { a: 1 };
   // console.log(obj?.a);

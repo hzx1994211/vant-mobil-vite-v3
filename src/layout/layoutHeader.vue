@@ -4,13 +4,11 @@
     <div class="content">
       <router-view />
     </div>
-    <Tabbar />
   </div>
 </template>
 
 <script setup lang="ts">
   import Header from './Header/index.vue';
-  import Tabbar from './Tabbar/index.vue';
 </script>
 
 <style lang="less" scoped>
@@ -30,7 +28,7 @@
     .content {
       padding: 16px;
       margin: @header-height 0 @tabbar-height 0;
-      height: calc(100% - @header-height - @tabbar-height);
+      height: calc(100% - @header-height);
       overflow: auto;
     }
   }

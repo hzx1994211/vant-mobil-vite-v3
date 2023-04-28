@@ -1,4 +1,4 @@
-vue3.2 + vite + vant + pinia + ts 移动端 h5 项目新手实践
+vue3.2 + vite + vant + pinia + ts 
 
 - [前言](#前言)
 - [Vite 创建项目](#vite-创建项目)
@@ -35,35 +35,7 @@ vue3.2 + vite + vant + pinia + ts 移动端 h5 项目新手实践
 - [Icon组件](#icon组件)
 - [其他](#其他)
 
-
-# 前言
-
-+ 数月前，公司有个新 H5 (虽然不认同 H5 这个叫法，但是大部分人都这么叫🤷‍♂️)项目给到我，作为一名移动端开发小白，免不了各种搜索&踩坑，过程曲折，于是有了这篇文章，希望对需要帮助的人有些许帮助 (废话文学)。
-+ 既然是新项目，那肯定要甩掉历史袱，什么技术新就上什么，vue3，vite，pinia...嘎嘎新✨
-+ 本人是小白，这些技术都是第一次使用，很多实现&思路都是参(chāo)考(xí)其他大佬🧍‍♂️的，如有不对的地方，欢迎各位大佬指正🙇
-+ 本文写于2022年8月，有些 API 变化迅速，可能你看到的时候已经不适用了，请注意甄别。
-+ 项目示例已上传 github，有需要的可以参考 [vue3-vant-mobile](https://github.com/zeorcpt/vue3-vant-mobile)
-
-# Vite 创建项目
-
-交互式：
-```sh
-$ npm create vite@latest
-Need to install the following packages:
-  create-vite@latest
-Ok to proceed? (y) y
-✔ Project name: … vue3-vant-mobile
-✔ Select a framework: › vue
-✔ Select a variant: › vue-ts
-```
-
-或者一步到胃式：
-```sh
-# npm 7+, extra double-dash is needed:
-npm create vite@latest vue3-vant-mobile -- --template vue-ts
-```
-
-初始目录结构：
+目录结构：
 ```
 .
 ├── .gitignore
@@ -91,7 +63,6 @@ npm create vite@latest vue3-vant-mobile -- --template vue-ts
 > Vite2 需要 Node.js 版本 >= 12.0.0；Vite3 需要 Node.js 版本 14.18+，16+。  
 > 我当初创建项目是vite@2.9.5，现在已经3.0.x了🤨
 
-咱就是说，vite在我公司那台15款8g内存🤦‍♂️的mbp上真是快到飞起🚀，终于免去了我在公司老旧项目中不敢随便command+s的痛苦(按一下保存得编译个10s，期间卡到只能双手离开键盘🤷‍♂️)。还没上车vite的xdm还不赶紧冲👊 [vite中文官网: https://cn.vitejs.dev](https://cn.vitejs.dev)
 
 > 补充一点🤏小知识  
 > 
@@ -1962,12 +1933,3 @@ const onPreview = () => {
 ```html
 <AppIcon name="logo" />
 ```
-
-# 其他
-
-由于ui设计问题，我项目中还需要 web 端如 antd、element 上面那种 menu 和 table 组件，正常的移动端项目是肯定不需要这种组件的，迫于无奈还是自己封装了这俩组件 🤷🏻‍♂️
-
-menu 组件是基于 van-collapse 组件封装，集合了点击展开子菜单，路由跳转，当前路径高亮，侧边收缩等功能  
-table 组件是基于原生 table 元素封装，集合了展开子行，勾选行，翻页，传入 columns 列时支持 render 和 slot 两种写法等。
-
-具体实现就不写了，一般人也不需要这类奇葩组件，源码我放 [github](https://github.com/zeorcpt/vue3-vant-mobile/tree/main/src/components) 上了，希望大家用不上😅

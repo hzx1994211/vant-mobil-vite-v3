@@ -36,9 +36,11 @@
   import Api, { LoginParams } from '@/api/user';
   import { useLoading } from '@/hooks';
   import debug from '@/utils/debug';
-  import watermark from '@/utils/lib/watermark';
+  // import watermark from '@/utils/lib/watermark';
   import copyPaste from '@/utils/lib/copy-paste';
+  import { useUserStore } from '@/store';
 
+  const userStore = useUserStore();
   const router = useRouter();
   const route = useRoute();
   const { startLoading, stopLoading } = useLoading();
@@ -54,15 +56,15 @@
     // 进入登录页时获取debug参数
     debug.config(route.query.debug);
 
-    watermark.remove();
+    // watermark.remove();
     copyPaste.enable();
   });
 
   onBeforeUnmount(() => {
     // const { username = '', mobile = '' } = auth.getUser();
-    watermark.add({
-      // content: username + ' ' + mobile,
-    });
+    // watermark.add({
+    //   // content: username + ' ' + mobile,
+    // });
     copyPaste.disable();
   });
 
@@ -71,6 +73,12 @@
     inputType.value = showPassword.value ? 'text' : 'password';
   };
   const onSubmit = async () => {
+    // 获取音频元素标签
+    let warningAudioDom: any = document.getElementById('warningAudio');
+    // 触发交互
+    warningAudioDom.pause();
+    userStore.updateAudioDom(warningAudioDom);
+
     setTimeout(() => {
       router.push('/index');
     }, 3000);

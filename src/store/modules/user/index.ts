@@ -5,6 +5,10 @@ export const useUserStore = defineStore('user', {
   state: () => {
     return {
       name: '张三',
+      token: '',
+      language: '',
+      warningAudioDom: null,
+      index: 0,
     };
   },
   getters: {
@@ -13,6 +17,15 @@ export const useUserStore = defineStore('user', {
   actions: {
     updateName(name: string) {
       this.name = name;
+    },
+    updateToken(token: string) {
+      this.token = token;
+    },
+    updateAudioDom(dom: any) {
+      this.warningAudioDom = dom;
+    },
+    updateIndex(index: number) {
+      this.index += Number(index);
     },
   },
 });

@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 export const layoutRoutes: Array<RouteRecordRaw> = [
   {
     path: 'index',
-    name: 'index',
+    name: '首页',
     meta: {
       title: 'index',
     },
@@ -34,6 +34,24 @@ export const layoutRoutes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/image-rotate/index.vue'),
   },
 ];
+export const layoutRoutesHeader: Array<RouteRecordRaw> = [
+  {
+    path: '/',
+    component: () => import('@/layout/layoutHeader.vue'),
+    redirect: '/index',
+    // 需要layout的页面
+    children: [
+      {
+        path: 'bar',
+        name: 'bar',
+        meta: {
+          title: 'bar',
+        },
+        component: () => import('@/pages/bar/index.vue'),
+      },
+    ],
+  },
+];
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -43,6 +61,7 @@ const routes: Array<RouteRecordRaw> = [
     // 需要layout的页面
     children: layoutRoutes,
   },
+  ...layoutRoutesHeader,
   // 不需要layout的页面
   {
     path: '/login',
